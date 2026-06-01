@@ -1,84 +1,35 @@
-/* ═══════════════════════════════════════════
-   ZZ DETAILS — main.js
-   ═══════════════════════════════════════════ */
+// ── MOBILE NAV TOGGLE ──
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
 
-/* ── Nav scroll effect ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-
-/* ── Mobile menu ── */
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu   = document.getElementById('mobileMenu');
-const closeMenu    = document.getElementById('closeMenu');
-const mobileLinks  = document.querySelectorAll('.mobile-link');
-
-hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-closeMenu.addEventListener('click',    () => mobileMenu.classList.remove('open'));
-mobileLinks.forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
-
-
-/* ── Scroll reveal (IntersectionObserver) ── */
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
+// ── SCROLL FADE-IN ANIMATIONS ──
+const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.12 });
 
-reveals.forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
+// ── STICKY CALL BUTTON: hide when contact section is visible ──
+const contactSection = document.getElementById('contact');
+const stickyCall = document.querySelector('.sticky-call');
 
-/* ── Quote form — Formspree AJAX submit ── */
-const quoteForm   = document.getElementById('quoteForm');
-const formSuccess = document.getElementById('formSuccess');
+const contactObserver = new IntersectionObserver((entries) => {
+  stickyCall.style.opacity = entries[0].isIntersecting ? '0' : '1';
+  stickyCall.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+}, { threshold: 0.2 });
 
-quoteForm.addEventListener('submit', async function (e) {
-  e.preventDefault();
+contactObserver.observe(contactSection);
 
-  const btn = quoteForm.querySelector('button[type="submit"]');
-  const originalHTML = btn.innerHTML;
-  btn.innerHTML = '<span>Sending...</span>';
-  btn.disabled  = true;
-
-  try {
-    const response = await fetch(quoteForm.action, {
-      method:  'POST',
-      body:    new FormData(quoteForm),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      quoteForm.reset();
-      quoteForm.style.display = 'none';
-      formSuccess.style.display = 'block';
-    } else {
-      btn.innerHTML = originalHTML;
-      btn.disabled  = false;
-      alert('Something went wrong. Please call us on 0433 782 233.');
-    }
-  } catch {
-    btn.innerHTML = originalHTML;
-    btn.disabled  = false;
-    alert('Something went wrong. Please call us on 0433 782 233.');
-  }
-});
-
-
-/* ── Smooth scroll for all anchor links ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
+// ── QUOTE FORM SUBMIT ──
+function handleFormSubmit() {
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = "✓ Sent! We'll call you soon.";
+  btn.style.background = '#1a3a2a';
+  btn.style.color = '#4caf80';
+  btn.disabled = true;
+}
