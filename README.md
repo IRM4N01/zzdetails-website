@@ -6,3 +6,6 @@ Domain pricing:
 - zzdetails.co : $11.32 p/year
 - zzdetails.pro : $5.56 p/year
 
+# MAGNUM Coating
+- videos or their work
+- 
