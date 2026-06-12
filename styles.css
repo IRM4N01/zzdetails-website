@@ -1098,12 +1098,12 @@ section { padding: 5rem 5vw; }
 /* ── FOOTER ── */
 footer {
   background: #080f0b;
-  padding: 2.5rem 5vw;
+  padding: 3rem 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   border-top: 1px solid rgba(76,175,128,0.1);
 }
 
@@ -1119,6 +1119,7 @@ footer {
 
 .footer-links {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -1127,13 +1128,22 @@ footer {
   color: rgba(255,255,255,0.4);
   text-decoration: none;
   transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--pine-glow); }
 
 .footer-social {
   display: flex;
   align-items: center;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: left;
+  }
 }
-.footer-links a:hover { color: var(--pine-glow); }
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
