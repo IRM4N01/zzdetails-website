@@ -31,8 +31,9 @@ body {
 
 /* ── NAV ── */
 .nav-logo img {
-  height: 72px;
+  height: 56px;
   width: auto;
+  display: block;
 }
 
 nav {
@@ -669,6 +670,15 @@ section { padding: 5rem 5vw; }
 
 .ba-enquiry p { font-size: 0.95rem; color: var(--text-muted); }
 
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pine-mid);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
 /* ── PROCESS ── */
 .process-section {
   background: var(--dark);
@@ -750,13 +760,26 @@ section { padding: 5rem 5vw; }
 .creds-inner {
   max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.creds-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
   align-items: center;
 }
 
 .creds-left .section-label { color: var(--pine-glow); }
+
+.creds-blurb {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  margin: 1.25rem 0 2rem;
+}
 
 .cred-card {
   background: rgba(255,255,255,0.06);
@@ -798,36 +821,92 @@ section { padding: 5rem 5vw; }
   line-height: 1.6;
 }
 
-.magnum-badge {
+/* Magnum logo badge */
+.magnum-logo-wrap {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 10px;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 16px;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magnum-logo-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Videos */
+.creds-videos {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2.5rem;
+}
+
+.videos-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pine-glow);
+  margin-bottom: 1.25rem;
+  display: block;
   text-align: center;
 }
 
-.magnum-logo {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 2rem;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 0.5rem;
+.creds-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
-.magnum-sub {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+.creds-video-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+
+.creds-video-card video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+.video-caption {
+  padding: 1.1rem 1.25rem;
+}
+
+.video-caption h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  display: block;
-  margin-bottom: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
 }
 
-.magnum-desc {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.7;
+.video-caption p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .creds-top { grid-template-columns: 1fr; }
+  .creds-video-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .creds-top { grid-template-columns: 1fr; }
+  .creds-video-grid { grid-template-columns: 1fr; }
 }
 
 /* ── SERVICE AREA ── */
@@ -1029,12 +1108,9 @@ footer {
 }
 
 .footer-logo {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 1.5rem;
-  letter-spacing: 0.12em;
-  color: var(--pine-glow);
+  height: 150px;
+  width: auto;
 }
-.footer-logo span { color: var(--gold); }
 
 .footer-copy {
   font-size: 0.82rem;
@@ -1051,6 +1127,11 @@ footer {
   color: rgba(255,255,255,0.4);
   text-decoration: none;
   transition: color 0.2s;
+
+.footer-social {
+  display: flex;
+  align-items: center;
+}
 }
 .footer-links a:hover { color: var(--pine-glow); }
 
