@@ -1,0 +1,65 @@
+/* ── FOOTER ── */
+footer {
+  background: #080f0b;
+  padding: 3rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(76,175,128,0.1);
+}
+
+.footer-logo {
+  height: 150px;
+  width: auto;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--pine-glow); }
+
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+/* ── STICKY CALL ── */
+.sticky-call {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--pine-glow);
+  color: var(--dark);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(76,175,128,0.35);
+  z-index: 90;
+  transition: background 0.2s, transform 0.1s, opacity 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sticky-call:hover { background: var(--gold-light); transform: scale(1.04); }
+.sticky-call::before { content: '📞'; font-size: 1rem; }

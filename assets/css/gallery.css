@@ -1,0 +1,112 @@
+/* ── GALLERY ── */
+.ba-section { background: var(--off-white); padding: 5rem 5vw; }
+.ba-inner { max-width: 1280px; margin: 0 auto; }
+.ba-header { text-align: center; margin-bottom: 3rem; }
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.ba-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ba-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.ba-slider-wrap { position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; }
+
+.ba-placeholder { display: flex; width: 100%; height: 100%; }
+
+.ba-placeholder-left,
+.ba-placeholder-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.ba-placeholder-left { background: #e8e4dc; }
+.ba-placeholder-right { background: var(--pine-pale); border-left: 2px dashed rgba(26,90,64,0.2); }
+
+.ba-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.ba-placeholder-icon { font-size: 1.8rem; }
+.ba-placeholder-content p { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+
+.ba-label-tag {
+  position: absolute;
+  top: 0.75rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+
+.before-tag { left: 0.75rem; background: rgba(0,0,0,0.25); color: #fff; }
+.after-tag { right: 0.75rem; background: var(--pine-glow); color: var(--dark); }
+
+.ba-card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ba-vehicle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.ba-package-tag {
+  font-size: 0.72rem;
+  color: var(--pine-mid);
+  background: var(--pine-pale);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ba-enquiry {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px dashed rgba(26,58,42,0.2);
+}
+
+.ba-enquiry p { font-size: 0.95rem; color: var(--text-muted); }
+
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pine-mid);
+  text-decoration: underline;
+  font-weight: 500;
+}

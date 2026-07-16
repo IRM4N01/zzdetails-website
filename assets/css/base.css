@@ -1,0 +1,116 @@
+/* ── RESET & VARIABLES ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pine: #1a3a2a;
+  --pine-mid: #2a5a40;
+  --pine-light: #3a7a58;
+  --pine-glow: #4caf80;
+  --pine-pale: #e8f5ee;
+  --cream: #f5f0e8;
+  --off-white: #faf8f4;
+  --dark: #0d1a12;
+  --dark-mid: #1a2a1f;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --text-main: #1a2a1f;
+  --text-muted: #5a7060;
+  --border: rgba(26, 58, 42, 0.12);
+  --shadow: 0 4px 40px rgba(26, 58, 42, 0.10);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--off-white);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── SECTIONS ── */
+section { padding: 5rem 5vw; }
+
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pine-glow);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
+}
+
+.section-title.light { color: #fff; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pine-glow);
+  color: var(--dark);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--pine-glow); color: var(--pine-glow); }
+
+/* ── CHECK MARK ── */
+.check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--pine-pale);
+  border: 1px solid rgba(26,90,64,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.check::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid var(--pine-mid);
+  border-bottom: 2px solid var(--pine-mid);
+  transform: rotate(45deg) translate(-1px, -1px);
+}

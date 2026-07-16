@@ -1,0 +1,16 @@
+/* ── ZZ DETAILS — MAIN STYLESHEET ── */
+/* Imports all partial CSS files in order */
+
+@import url('base.css');
+@import url('nav.css');
+@import url('hero.css');
+@import url('why.css');
+@import url('credentials.css');
+@import url('packages.css');
+@import url('gallery.css');
+@import url('process.css');
+@import url('area.css');
+@import url('contact.css');
+@import url('footer.css');
+@import url('mobile.css');
+@import url('animations.css');

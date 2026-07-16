@@ -1,0 +1,57 @@
+/* ── MOBILE & RESPONSIVE ── */
+
+/* Loyalty banner */
+@media (max-width: 768px) {
+  .loyalty-banner { flex-direction: column; text-align: center; }
+  .loyalty-cta { width: 100%; justify-content: center; }
+}
+
+/* Comparison grid */
+@media (max-width: 600px) {
+  .comparison-grid { grid-template-columns: 1fr; }
+}
+
+/* Credentials */
+@media (max-width: 768px) {
+  .creds-top { grid-template-columns: 1fr; }
+  .creds-video-grid { grid-template-columns: 1fr; }
+}
+
+/* Main layout */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(13,26,18,0.98);
+    padding: 2rem 5vw;
+    gap: 1.5rem;
+    z-index: 99;
+  }
+
+  .why-inner,
+  .contact-inner,
+  .packages-grid,
+  .ba-grid,
+  .area-cards { grid-template-columns: 1fr; }
+
+  .process-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .process-steps::before { display: none; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  footer { flex-direction: column; text-align: center; }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: left;
+  }
+}

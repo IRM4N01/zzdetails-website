@@ -1,0 +1,218 @@
+/* ── WHY CHOOSE US ── */
+.why-section {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(42,90,64,0.25) 0%, transparent 60%);
+}
+
+.why-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.why-left .section-label { color: var(--pine-glow); }
+.why-left .section-title { color: #fff; }
+
+.why-tagline {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  margin: 1.25rem 0 2rem;
+  line-height: 1.75;
+}
+
+.why-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.why-highlight:last-child { border-bottom: none; }
+
+.why-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(76,175,128,0.12);
+  border: 1px solid rgba(76,175,128,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.why-highlight h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.why-highlight p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* ── WHY SECTION: RIGHT COLUMN CARD ── */
+.why-right { display: flex; align-items: center; }
+
+.why-right-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(76,175,128,0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.why-right-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.why-right-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* ── DEALER WARNING COMPARISON ── */
+.dealer-warning-wide {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 1.75rem 2rem;
+}
+
+.dealer-warning-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.dealer-warning-sub {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.5rem;
+}
+
+.dealer-warning-footer {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.comparison-col {
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+
+.dealer-col {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.zz-col {
+  background: rgba(76,175,128,0.08);
+  border: 1px solid rgba(76,175,128,0.2);
+}
+
+.comparison-label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.dealer-col .comparison-label { color: rgba(255,255,255,0.4); }
+.zz-col .comparison-label { color: var(--pine-glow); }
+
+.comparison-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.comparison-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.dealer-col .comparison-list li { color: rgba(255,255,255,0.55); }
+.zz-col .comparison-list li { color: rgba(255,255,255,0.8); }
+
+.x-mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,80,80,0.1);
+  border: 1px solid rgba(255,80,80,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  position: relative;
+}
+.x-mark::before, .x-mark::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 1.5px;
+  background: rgba(255,120,120,0.8);
+  top: 50%;
+  left: 50%;
+}
+.x-mark::before { transform: translate(-50%, -50%) rotate(45deg); }
+.x-mark::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.zz-col .check {
+  background: rgba(76,175,128,0.15);
+  border-color: rgba(76,175,128,0.3);
+}
+.zz-col .check::after { border-color: var(--pine-glow); }

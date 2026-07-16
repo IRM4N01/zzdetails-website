@@ -1,0 +1,108 @@
+/* ── HOW IT WORKS ── */
+.process-section {
+  background: var(--dark);
+  overflow: hidden;
+  position: relative;
+}
+
+.process-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.process-header { margin-bottom: 3rem; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--pine-mid), var(--pine-glow), var(--pine-mid));
+  z-index: 0;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── FLIP CARDS ── */
+.step-num-flip {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.25rem;
+  perspective: 400px;
+  cursor: pointer;
+}
+
+.step-num-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.step-num-flip:hover .step-num-flip-inner,
+.step-num-flip:focus-within .step-num-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.step-num-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--dark-mid);
+  border: 2px solid var(--pine-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.step-num-front {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  color: var(--pine-glow);
+}
+
+.step-num-back {
+  font-size: 1.6rem;
+  background: var(--pine-mid);
+  border-color: var(--pine-glow);
+  transform: rotateY(180deg);
+}
+
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}

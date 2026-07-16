@@ -1,0 +1,36 @@
+/* ── SERVICE AREA ── */
+.area-section { background: var(--cream); }
+.area-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+
+.area-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.area-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.area-card-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+
+.area-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.area-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}

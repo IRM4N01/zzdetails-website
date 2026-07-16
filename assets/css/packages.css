@@ -1,0 +1,241 @@
+/* ── PACKAGES ── */
+.packages-section {
+  background: var(--cream);
+  max-width: none;
+}
+
+.packages-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.packages-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.package-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.package-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.package-card.featured {
+  border-color: var(--pine-mid);
+  border-width: 2px;
+}
+
+.package-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--pine-glow);
+  color: var(--dark);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+.package-header {
+  background: var(--pine);
+  color: #fff;
+  padding: 2rem 2rem 1.5rem;
+}
+
+.package-card.featured .package-header { background: var(--pine-mid); }
+
+.package-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pine-glow);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.package-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.package-price {
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-from {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+
+.price-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.8rem;
+  color: var(--pine-glow);
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.price-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  align-self: flex-end;
+  padding-bottom: 4px;
+}
+
+.package-body {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.package-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.package-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.package-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.package-warranty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pine-pale);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--pine);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.package-cta {
+  display: block;
+  text-align: center;
+  background: var(--pine);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.package-card.featured .package-cta { background: var(--pine-glow); color: var(--dark); }
+.package-cta:hover { background: var(--pine-light); }
+.package-card.featured .package-cta:hover { background: var(--gold); color: var(--dark); }
+
+.packages-enquiry {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px dashed rgba(26,58,42,0.2);
+}
+
+.packages-enquiry p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ── LOYALTY PROGRAM ── */
+.loyalty-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--pine);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.loyalty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(76,175,128,0.15);
+  border: 1px solid rgba(76,175,128,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.loyalty-content { flex: 1; min-width: 240px; }
+
+.loyalty-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pine-glow);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.loyalty-content h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.loyalty-content p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.loyalty-cta {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.loyalty-cta:hover {
+  border-color: var(--pine-glow) !important;
+  color: var(--pine-glow) !important;
+}
