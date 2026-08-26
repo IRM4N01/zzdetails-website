@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand New Car Package — ZZ Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+  <style>
+    .product-page { background: var(--dark); min-height: 100vh; padding-top: 72px; }
+
+    /* ── PRODUCT HERO ── */
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 5vw;
+      align-items: start;
+      gap: 3rem;
+    }
+
+    /* ── IMAGE GALLERY ── */
+    .product-gallery { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .gallery-main {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--pine);
+      border: 1px solid rgba(76,175,128,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gallery-main-placeholder {
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .gallery-main-placeholder span {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    .gallery-thumb {
+      border-radius: 8px;
+      aspect-ratio: 1;
+      background: var(--pine);
+      border: 1px solid rgba(76,175,128,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .gallery-thumb:hover { border-color: var(--pine-glow); }
+    .gallery-thumb.active { border-color: var(--pine-glow); }
+
+    /* ── PRODUCT DETAILS ── */
+    .product-details { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .product-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pine-glow);
+    }
+
+    .product-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-from-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .price-amount {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.5rem;
+      color: var(--pine-glow);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    /* ── VARIANT SELECTORS ── */
+    .variant-group { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .variant-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .variant-options { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .variant-btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .variant-btn:hover { border-color: var(--pine-glow); color: #fff; }
+    .variant-btn.active { border-color: var(--pine-glow); background: rgba(76,175,128,0.1); color: #fff; }
+
+    /* ── INCLUDES ── */
+    .includes-section { padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .includes-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.75rem;
+    }
+
+    .includes-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .includes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── CTA ── */
+    .product-cta { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .btn-book {
+      display: block;
+      text-align: center;
+      background: var(--pine-glow);
+      color: var(--dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-book:hover { background: var(--gold-light); }
+
+    .cta-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── WARRANTY BADGE ── */
+    .warranty-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(76,175,128,0.08);
+      border: 1px solid rgba(76,175,128,0.2);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--pine-glow);
+      font-weight: 500;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .product-about {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5vw 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 3rem;
+    }
+
+    .about-block h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .about-block p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+    }
+
+    /* ── PROCESS STEPS ── */
+    .process-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .process-mini-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .process-mini-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--dark-mid);
+      border: 1px solid var(--pine-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1rem;
+      color: var(--pine-glow);
+      flex-shrink: 0;
+    }
+
+    .process-mini-text h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .process-mini-text p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+      padding: 1.5rem 5vw 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: block;
+    }
+    .back-link:hover { color: var(--pine-glow); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .product-hero { grid-template-columns: 1fr; }
+      .product-about { grid-template-columns: 1fr; }
+      .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../assets/images/Logo-hd-icon-glow.png" alt="ZZ Details Logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html#why">About Us</a></li>
+    <li><a href="../index.html#credentials">Credentials</a></li>
+    <li><a href="../index.html#packages">Packages</a></li>
+    <li><a href="../index.html#gallery">Gallery</a></li>
+    <li><a href="../index.html#process">How It Works</a></li>
+    <li><a href="../index.html#area">Service Area</a></li>
+    <li><a href="../index.html#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="product-page">
+
+  <!-- Back link -->
+  <a href="../index.html#packages" class="back-link">← Back to packages</a>
+
+  <!-- Product Hero -->
+  <div class="product-hero">
+
+    <!-- Image Gallery -->
+    <div class="product-gallery fade-in">
+      <div class="gallery-main">
+        <div class="gallery-main-placeholder">
+          <div style="font-size: 3rem;">📷</div>
+          <span>Photos coming soon</span>
+        </div>
+      </div>
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb active">📷</div>
+        <div class="gallery-thumb">📷</div>
+        <div class="gallery-thumb">📷</div>
+        <div class="gallery-thumb">📷</div>
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="product-details fade-in">
+      <div>
+        <div class="product-tag">For New Vehicles</div>
+        <h1 class="product-title">BRAND NEW CAR PACKAGE</h1>
+      </div>
+
+      <div class="product-price">
+        <span class="price-from-label">Starting from</span>
+        <span class="price-amount">$999</span>
+      </div>
+
+      <!-- Vehicle Size -->
+      <div class="variant-group">
+        <span class="variant-label">Vehicle Size</span>
+        <div class="variant-options">
+          <button class="variant-btn active" onclick="selectVariant(this, 'size')">Sedan / Hatch</button>
+          <button class="variant-btn" onclick="selectVariant(this, 'size')">SUV / Crossover</button>
+          <button class="variant-btn" onclick="selectVariant(this, 'size')">Ute / Truck</button>
+        </div>
+      </div>
+
+      <!-- Warranty -->
+      <div class="variant-group">
+        <span class="variant-label">Warranty</span>
+        <div class="variant-options">
+          <button class="variant-btn" onclick="selectVariant(this, 'warranty')">5 Year</button>
+          <button class="variant-btn active" onclick="selectVariant(this, 'warranty')">7 Year</button>
+          <button class="variant-btn" onclick="selectVariant(this, 'warranty')">10 Year</button>
+        </div>
+      </div>
+
+      <!-- Warranty badge -->
+      <div class="warranty-badge">🛡 Warranty matches your chosen coating duration</div>
+
+      <!-- Includes -->
+      <div class="includes-section">
+        <div class="includes-title">What's included</div>
+        <ul class="includes-list">
+          <li><span class="check"></span> Thorough wash & decontamination</li>
+          <li><span class="check"></span> Paint surface prep & polish</li>
+          <li><span class="check"></span> Full exterior Magnum ceramic coating</li>
+          <li><span class="check"></span> Post-coating inspection</li>
+          <li><span class="check"></span> <strong style="color: var(--pine-glow);">Free</strong> wheel coating</li>
+          <li><span class="check"></span> <strong style="color: var(--pine-glow);">Free</strong> interior coating</li>
+          <li><span class="check"></span> <strong style="color: var(--pine-glow);">Free</strong> glass coating</li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="product-cta">
+        <a href="../index.html#contact" class="btn-book">Book Now</a>
+        <p class="cta-note">We'll confirm your booking details via phone call</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- About Section -->
+  <div class="product-about">
+    <div class="about-block">
+      <h3>ABOUT THIS PACKAGE</h3>
+      <p>The Brand New Car Package is designed for new or near-new vehicles that don't require heavy paint correction — just a thorough prep and professional ceramic coating application. Perfect if you want to protect your investment from day one before environmental damage, UV, and contaminants take hold.</p>
+      <p style="margin-top: 1rem;">Every vehicle is hand-washed and decontaminated before the coating goes on — we never skip prep work, because a coating applied to a dirty or improperly prepared surface won't bond correctly. You get what you pay for here.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>THE PROCESS</h3>
+      <div class="process-mini">
+        <div class="process-mini-step">
+          <div class="process-mini-num">01</div>
+          <div class="process-mini-text">
+            <h4>Wash & Decontamination</h4>
+            <p>Full hand wash, iron decontamination and clay bar treatment to remove bonded contaminants.</p>
+          </div>
+        </div>
+        <div class="process-mini-step">
+          <div class="process-mini-num">02</div>
+          <div class="process-mini-text">
+            <h4>Paint Prep & Polish</h4>
+            <p>Surface is polished to remove any light imperfections and prepped for coating adhesion.</p>
+          </div>
+        </div>
+        <div class="process-mini-step">
+          <div class="process-mini-num">03</div>
+          <div class="process-mini-text">
+            <h4>Coating Application</h4>
+            <p>Magnum ceramic coating is applied panel by panel in a controlled environment.</p>
+          </div>
+        </div>
+        <div class="process-mini-step">
+          <div class="process-mini-num">04</div>
+          <div class="process-mini-text">
+            <h4>Inspection & Handover</h4>
+            <p>Full post-coating inspection, care guide provided, and warranty issued.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="../assets/images/Logo-hd-full-glow.png" alt="ZZ Details Logo" class="footer-logo">
+  <div class="footer-copy">© 2024 ZZ Details. ABN TBC. Prestons, Sydney NSW.</div>
+  <div class="footer-links">
+    <a href="../index.html#packages">Packages</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="tel:0433782233">0433 782 233</a>
+    <a href="https://instagram.com/zz.details" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<a href="tel:0433782233" class="sticky-call">Call for a Quote</a>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function selectVariant(btn, group) {
+  const parent = btn.closest('.variant-options');
+  parent.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>

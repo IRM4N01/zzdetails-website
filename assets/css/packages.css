@@ -177,6 +177,60 @@
   margin-bottom: 1rem;
 }
 
+/* ── PACKAGE PREVIEW CARDS (homepage) ── */
+.package-preview-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+.package-preview-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.package-preview-card.featured { border-color: var(--pine-mid); border-width: 2px; }
+
+.package-preview-img {
+  aspect-ratio: 16/9;
+  background: var(--pine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.package-preview-placeholder {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+.package-preview-body {
+  padding: 1.5rem;
+}
+
+.package-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.package-preview-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pine-mid);
+  transition: color 0.2s;
+}
+
+.package-preview-card:hover .package-preview-cta { color: var(--pine-glow); }
+
 /* ── LOYALTY PROGRAM ── */
 .loyalty-banner {
   display: flex;
